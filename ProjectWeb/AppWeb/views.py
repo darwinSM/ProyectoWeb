@@ -8,10 +8,12 @@ def home(request):
     #return HttpResponse("home")
     return render (request, 'AppWeb/home.html')
 
-
+# Esta vista se traslada a view de la AppTienda
+"""
 def tienda (request):
     #return HttpResponse("tienda")
     return render (request , 'AppWeb/tienda.html')
+"""
 
 # Esta vista se traslada a view de la AppBlog
 '''

@@ -1,0 +1,50 @@
+
+{% extends 'AppWeb/plantilla_base.html' %}
+{% load static %}
+
+<!--
+{{producto.imagen.url}}
+{{prodcuto.nombre_producto}}
+{{producto.precio}}
+{{producto.disponibilidad}}
+{{producto.categoria_producto}}
+-->
+
+<!-- la plantilla de la AppTienda tiene una estructura diferente a las otras app, la desarrollaremos como tarjetas  "card" 
+    de boopstrap , dispuestas en filas (cada fila de 4 columnas) -->
+
+<!-- documentacion en: google: "grid system bootstrap" -->>
+
+<body>
+    {% block content %} 
+    
+    <div class="container">
+    <!--La propiedad de mostrar en filas "row" , se le debe indicar antes del for 
+        y se cierra al finalizar despues de enfor-->
+        <div class="row">
+            
+                {% for producto in productos %}
+                    <div class="col-md-3">
+                        <div class="card" style="width: 100%; margin: 10px 10px;" >
+                            
+                            <img src="{{producto.imagen.url}}" class="card-img-top">
+
+                                <div class="card-body" style="text-align: center;">
+                                    <h5 class="card-titlle">
+                                        {{producto.nombre_producto}}
+                                    </h5>
+                                    <p class="card-text">
+                                        $&nbsp;{{producto.precio}}
+                                    </p>
+                                </div>
+
+                        </div>
+                    </div>
+                {% endfor %}
+            
+        </div>
+    </div>
+    {% endblock %}
+</body>
+
+
