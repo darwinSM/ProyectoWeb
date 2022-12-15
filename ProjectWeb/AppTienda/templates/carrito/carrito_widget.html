@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table class="table table-bordered" style="color: white;">
+        
+        <thead> <!-- cabecera de la tabla-->
+            <tr> <!-- 1era. fila-->
+                <th colspan="3" class="text-center"> Carrito de compras </th> <!-- columnas-->
+            </tr>
+
+            <tr> <!-- 2da. fila--> 
+                <th>Producto</th>   <!-- 1era. columna-->
+                <th>Cantidad</th>   <!-- 2da. columna-->
+                <th>Subtotal</th>     <!-- 3era. columna-->
+            </tr>
+        </thead>
+
+        <tbody> <!-- cuerpo de la tabla-->
+            <!--Si no se han agregado articulos al carrito ponga el mensaje "carrito vacio"-->
+            {% if request.session.carrito.items %}
+                {% for key, value in request.session.carrito.items %}
+                    <!-- Ir agregando productos nuevos uno debajo de otro-->
+                    <tr class="text-center">
+                        <td>{{ value.nombre_producto }}</td>
+                        <td>{{ value.cantidad }}</td>
+                        <td>
+                            $ &nbsp;{{value.precio}}<br>
+                            <a href="{% url 'carrito:Agregar' value.producto_id %}" class="btn btn-sm btn-success"> + </a>
+                            <a href="{% url 'carrito:Restar' value.producto_id %}" class="btn btn-sm btn-success"> - </a> 
+                        </td>
+                    </tr>
+            {% endfor %}
+
+            {% else %}
+                <tr>
+                    <td colspan="3"> <!-- El mensaje de advertencia ocupa las 3 columnas de la tabla-->
+                        <div class="alert alert-info text-center" role="alert"> Carrito vacio </div>
+                    </td>
+                </tr>
+           
+            {% endif %}
+
+
+
+
+
+
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="3">  
+                    Total : $ &nbsp{{importe_total_carrito}} 
+                </td>
+
+            </tr>
+        </tfoot>
+
+
+
+    </table> 
+
+
+
+</body>
+</html>

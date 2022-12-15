@@ -5,8 +5,8 @@ from AppTienda.models import Categoria_producto , Producto
 
 def tienda (request):
     #return HttpResponse("tienda")
-    prodcutos = Producto.objects.all()
-    return render (request , 'AppTienda/tienda.html' , {'productos': prodcutos}) 
+    productos = Producto.objects.all()
+    return render (request , 'AppTienda/tienda.html' , {'productos': productos}) 
 
 '''
 def categoria_producto (request, categoria_prodcuto_id) :
@@ -15,3 +15,4 @@ def categoria_producto (request, categoria_prodcuto_id) :
     return render (request , 'AppTienda/categoria_producto.html' , 
     {'categoria_producto': categoria_producto , 'productos' : 'productos'})
 '''
+

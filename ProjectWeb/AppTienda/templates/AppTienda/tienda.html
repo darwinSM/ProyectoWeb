@@ -19,10 +19,17 @@
     {% block content %} 
     
     <div class="container">
-    <!--La propiedad de mostrar en filas "row" , se le debe indicar antes del for 
+        <!--Contenedor para el carrito de compras-->
+        <div style="float: right ;">
+            <p style="color: white;">Total : $ &nbsp{{importe_total_carrito}} </p>
+            {% include "carrito/carrito_widget.html" %}
+        </div>
+    
+    
+        <!--La propiedad de mostrar en filas "row" , se le debe indicar antes del for 
         y se cierra al finalizar despues de enfor-->
         <div class="row">
-            
+          
                 {% for producto in productos %}
                     <div class="col-md-3">
                         <div class="card" style="width: 100%; margin: 10px 10px;" >
@@ -38,6 +45,11 @@
                                     </p>
                                 </div>
 
+                                <!-- Crear boton para carrito de compras-->
+                                <div class="card-footer text-center">
+                                    <!--Esta ruta debe llamar a agregar productos en el carrito-->
+                                    <a href="{% url 'carrito:Agregar' producto.id %}" class="btn btn-success">Agregar al carrito</a>
+                                </div>
                         </div>
                     </div>
                 {% endfor %}
@@ -48,3 +60,4 @@
 </body>
 
 
+<!--{% url 'carrito:agregar' producto.id %}-->

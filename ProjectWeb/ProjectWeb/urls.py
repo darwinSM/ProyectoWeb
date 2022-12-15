@@ -32,6 +32,7 @@ urlpatterns = [
     path ('AppBlog/' , include ('AppBlog.urls')),
     path ('AppContacto/' , include ('AppContacto.urls')),
     path ('AppTienda/' , include ('AppTienda.urls')),
+    path ('AppShopingCart/' , include ('AppShopingCart.urls')),
     #path('', views.home , name='Home'),
     #path('servicio/' , views.servicio , name='Servicios'),
     #path('tienda/', views.tienda , name='Tienda'),

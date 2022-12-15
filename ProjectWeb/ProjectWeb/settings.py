@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'AppBlog' ,
     'AppContacto' ,
     'AppTienda',
+    'AppShopingCart' ,
 ]
 
 MIDDLEWARE = [
@@ -73,6 +74,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                #ruta de context_processor del proyecto
+                'AppShopingCart.context_processor.importe_total_carrito',
             ],
         },
     },
