@@ -8,6 +8,7 @@
 class Carrito: 
     #contructor
     def __init__(self, request):
+        
         #almacenar la peticion actual para utilizarla despues dentro de esta misma clase
         self.request = request
 
@@ -23,6 +24,8 @@ class Carrito:
             carrito = self.session["carrito"]={}
         #si ya hay carro entonces
         #else :
+        
+        #carrito = Carrito(request)
         self.carrito = carrito
 
     #funcion para agregar productos

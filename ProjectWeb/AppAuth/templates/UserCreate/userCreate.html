@@ -1,0 +1,21 @@
+<!--Instruccion que le indica a home.html que hereda contenido de plantilla_base.thml -->
+{% extends 'AppWeb/plantilla_base.html' %}
+<!--Cargar contenido estatico, imagenes, ..-->
+{% load static %}
+
+<!--Cargar libreria django-crispy-forms , tambien se debe registrar en setting INSTALLED_APPS-->
+{% load crispy_forms_tags %} 
+
+{%  block content %}
+
+    <!--metodo "post" , porq' la informacion del formulario tiene q ser enviada por el post-->
+<form method="post" action="" style="color: aliceblue;">
+    {% csrf_token %}
+    <div style="width: 40%; margin: auto;">   <!--margin:aut (es para centrar)-->
+        {{form|crispy}}
+        <!--Crear boton "Registrarse"-->
+        <button type="submit" class="btn btn-success" > Registarse </button>
+    </div>    
+</form>
+    
+{% endblock %}

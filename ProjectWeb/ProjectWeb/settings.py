@@ -14,6 +14,8 @@ from pathlib import Path
 #importacion para leer variables de entorno secretas .env
 from decouple import config
 
+#Expecificar que se van a ulizar los message tags (etiquetas de mensaje), con un alias definido por el prgramador
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -49,6 +51,10 @@ INSTALLED_APPS = [
     'AppContacto' ,
     'AppTienda',
     'AppShopingCart' ,
+    'AppAuth' ,
+
+    #librerias
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -167,3 +173,16 @@ EMAIL_PORT = 587
 
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+
+# Cargar el paquete crispy en bootstrap
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+# Importando estas lineas de codigo , con sus tags, es posible utilzar ahora los mensajes derror en las plantillas html
+MESSAGE_TAGS = {
+    messages.DEBUG: 'debug',
+    messages.INFO: 'info',
+    messages.SUCCESS: 'success',
+    messages.WARNING: 'warning',
+    messages.ERROR: 'danger',
+}

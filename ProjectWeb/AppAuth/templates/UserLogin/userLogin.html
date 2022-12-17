@@ -1,0 +1,34 @@
+<!--Este formulario es igual al de registro, django lo crea automaticamente cargando la libreria crispy_forms-->
+
+<!--Instruccion que le indica a home.html que hereda contenido de plantilla_base.thml -->
+{% extends 'AppWeb/plantilla_base.html' %}
+<!--Cargar contenido estatico, imagenes, ..-->
+{% load static %}
+
+<!--Cargar libreria django-crispy-forms , tambien se debe registrar en setting INSTALLED_APPS-->
+{% load crispy_forms_tags %} 
+
+{%  block content %}
+
+    <!--metodo "post" , porq' la informacion del formulario tiene q ser enviada por el post-->
+<form method="post" action="" style="color: aliceblue;">
+    {% csrf_token %}
+    <div style="width: 40%; margin: auto;">   <!--margin:aut (es para centrar)-->
+        {{form|crispy}}
+        <!--Crear boton "Login"-->
+        <button type="submit" class="btn btn-success" > login </button> 
+                
+        <!--Si hay mensajes-->
+        {% if messages %}
+                <!--recorralos y muestrelos-->
+                {% for message in messages %}
+                    
+                    <!--Se puede aplicar bootstrap , para customizar el mensaje con la clase alert alert , y aplicarla -->
+                    <span class="alert alert-{{message.tags}}"> {{message}} </span>
+                    
+                {% endfor %}
+        {% endif %}
+    </div>    
+</form>
+
+{% endblock %}

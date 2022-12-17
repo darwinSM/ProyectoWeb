@@ -6,8 +6,8 @@ from AppTienda.models import Categoria_producto , Producto
 def tienda (request):
     #return HttpResponse("tienda")
     productos = Producto.objects.all()
+    #return render (request , 'AppTienda/tienda.html') 
     return render (request , 'AppTienda/tienda.html' , {'productos': productos}) 
-
 '''
 def categoria_producto (request, categoria_prodcuto_id) :
     categoria_producto = Categoria_producto.objects.get(id=categoria_prodcuto_id)

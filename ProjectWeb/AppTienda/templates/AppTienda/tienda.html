@@ -19,11 +19,23 @@
     {% block content %} 
     
     <div class="container">
+        
+        <!--Mostrar el carro solo si el ususario esta autenticado-->
+        {% if request.user.is_authenticated %}
+        
         <!--Contenedor para el carrito de compras-->
         <div style="float: right ;">
             <p style="color: white;">Total : $ &nbsp{{importe_total_carrito}} </p>
             {% include "carrito/carrito_widget.html" %}
         </div>
+        
+        {% else %}
+                          
+                <div style="float: right ; margin-top: 50px; margin-left: 5px;" class= "alert alert-info text-center" role="alert"> 
+                    VER CARRITO <br> *** se requiere Login *** 
+                </div>
+
+        {% endif %}
     
     
         <!--La propiedad de mostrar en filas "row" , se le debe indicar antes del for 

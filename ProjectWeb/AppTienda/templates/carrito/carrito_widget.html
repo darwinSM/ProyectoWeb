@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <table class="table table-bordered" style="color: white;">
         
@@ -35,7 +36,7 @@
                             <a href="{% url 'carrito:Restar' value.producto_id %}" class="btn btn-sm btn-success"> - </a> 
                         </td>
                     </tr>
-            {% endfor %}
+                {% endfor %}
 
             {% else %}
                 <tr>
@@ -43,14 +44,7 @@
                         <div class="alert alert-info text-center" role="alert"> Carrito vacio </div>
                     </td>
                 </tr>
-           
             {% endif %}
-
-
-
-
-
-
         </tbody>
 
         <tfoot>
@@ -58,15 +52,9 @@
                 <td colspan="3">  
                     Total : $ &nbsp{{importe_total_carrito}} 
                 </td>
-
             </tr>
         </tfoot>
 
-
-
     </table> 
-
-
-
 </body>
 </html>
