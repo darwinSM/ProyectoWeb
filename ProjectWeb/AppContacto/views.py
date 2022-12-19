@@ -7,11 +7,13 @@ from django.core.mail import EmailMessage
 # Create your views here.
 
 def contacto (request):
-    #instanciar (crear una variable de la clase crada en views)
+    #instanciar (crear una variable de la clase FormularioContacto creada en forms)
     formulario_contacto = FormularioContacto()
     
+    # Si se ha hecho "POST"
     # rescatar la infomacion cargada en el fornuario
     if request.method == "POST":
+        # Cargar en la varibla la informacion, pasando por parametro los datosque el ususrio introdujo
         formulario_contacto = FormularioContacto(data = request.POST)   
 
         if formulario_contacto.is_valid():

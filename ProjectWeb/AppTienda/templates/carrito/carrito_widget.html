@@ -48,11 +48,32 @@
         </tbody>
 
         <tfoot>
+         
             <tr>
+                <!-- colspan 3 , significa que esa fila ocupa las tres columnas-->
                 <td colspan="3">  
                     Total : $ &nbsp{{importe_total_carrito}} 
                 </td>
             </tr>
+
+            <!--En las siguientes lineas se creara boton de COMPRAS-->
+            <!--Si hay articulos en el carrito mostrar boton de compra, si no hay articulos  NO se muestra boton de compra-->
+            
+            <!--Comprobar que la sesion esta abierta y que hay articulos en el carro-->
+            {% if request.session.carrito.items %}
+
+                <tr>
+                    <td colspan="3" class="text-center">
+                        <!--El boton debe ser un vinvulo-->   
+                       <!-- <a href="#" class="btn btn-success"> BUY NOW </a> -->
+                       <!--<a href="../pedidos" class="btn btn-success">Hacer Pedido</a>-->
+                       <a href="../../AppPedido/pedido" class="btn btn-success">BUY NOW</a> 
+                       
+                    </td>
+                </tr>
+ 
+            {% endif %}
+
         </tfoot>
 
     </table> 

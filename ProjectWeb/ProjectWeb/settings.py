@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'AppTienda',
     'AppShopingCart' ,
     'AppAuth' ,
+    'AppPedido' ,
 
     #librerias
     'crispy_forms',
