@@ -25,7 +25,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('AppWeb/' , include('AppWeb.urls')) ,   # Enlace a la aplicacion de la urls de la aplicacion
+    path('' , include('AppWeb.urls')) ,   # Enlace a la aplicacion de la urls de la aplicacion
     # si dejamos vacio el primer parametro del path '' --> En la direccion de la url se omite en la direccion de la ur  'AppWeb/'
     
     path ('AppServicios/' , include ('AppServicios.urls')),

@@ -8,7 +8,7 @@ from AppWeb import views
 
 urlpatterns = [
     
-    path('home/', views.home , name='Home'),
+    path('', views.home , name='Home'),
     #path('servicio/' , views.servicio , name='Servicio'),
     #path('tienda/', views.tienda , name='Tienda'),
     #path('blog/' , views.blog , name='Blog'),
