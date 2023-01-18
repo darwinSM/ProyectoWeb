@@ -1,0 +1,3 @@
+python.decouple # pip install python-decouple
+django-crispy-forms #pip install django-crispy-forms
+pillow # pip install pillow
